@@ -2,7 +2,6 @@ import React from 'react';
 
 import './PlayerCard.css'
 const PlayerCard = (props) => {
-    console.log('props: ', props.playersStats);
     const {
         firstname,
         lastname,
@@ -63,8 +62,8 @@ const PlayerCard = (props) => {
                         </tr></tbody>
                     </table>
                     Last (wins/Losses):
-                    {data.last.map((score) => {
-                        return <div className={`game wins-` + score}>
+                    {data.last.map((score, i) => {
+                        return <div key={`last` + i} className={`game wins-` + score}>
                             {winsAndLosses[score]}
                         </div>
                         })

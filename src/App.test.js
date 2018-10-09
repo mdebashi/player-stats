@@ -77,5 +77,20 @@ describe('Home', () => {
     wrapper.setState({ playersStats: props });
     const hasPlayerCard = wrapper.find(PlayerCard);
     expect(hasPlayerCard.exists()).toBe(true);
-  })
+  });
+
+  it('should render an image of the player', () => {
+    const wrapper = mount(<App playersStats={props} />)
+    wrapper.setState({ playersStats: props });
+    const hasImage = wrapper.find('img.card__image');    
+    expect(hasImage.length).toEqual(2);
+  });
+
+  it('should render the player last wins and losses and translates it from 1 to W', () => {
+    const wrapper = mount(<App playersStats={props} />)
+    wrapper.setState({ playersStats: props });
+    const hasWinsLosses = wrapper.find('.game');    
+    expect(hasWinsLosses.length).toEqual(10);
+    expect(hasWinsLosses.first().text()).toEqual('W')
+  });
 })

@@ -19,7 +19,6 @@ class App extends Component {
   }
 
   render () {
-    console.log(this.state)
     return (
       <div className="container">
         <h2>Player stats:</h2>
